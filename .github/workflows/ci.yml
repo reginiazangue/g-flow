@@ -1,3 +1,4 @@
+
 name: CI - G-Flow
 
 on:
@@ -42,6 +43,14 @@ jobs:
           DJANGO_SECRET_KEY: cle-temporaire-pour-les-tests
           DJANGO_DEBUG: "True"
           DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1
+
+      - name: Verifier la configuration Django
+        run: python manage.py check --deploy
+        env:
+          DJANGO_SECRET_KEY: cle-temporaire-pour-les-tests
+          DJANGO_DEBUG: "False"
+          DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1
+        continue-on-error: true
 
       - name: Lancer les tests
         run: pytest
