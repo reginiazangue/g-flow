@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <div><h1 class="mb-1">{% trans "Projets" %}</h1><p class="text-muted-2 mb-0">{% trans "Découvrez les projets disponibles." %}</p></div>
+    {% if user.role == 'teacher' %}<a href="{% url 'project_create' %}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> {% trans "Nouveau" %}</a>{% endif %}
+  </div>
+
+  <form method="get" class="gf-card mb-3">
+    <div class="row g-2">
+      <div class="col-md-5"><input class="form-control" name="q" value="{{ q }}" placeholder="🔍 Rechercher..."></div>
+      <div class="col-md-3"><select class="form-select" name="status"><option value="">{% trans "Tous les statuts" %}</option><option value="open" {% if status == 'open' %}selected{% endif %}>{% trans "Ouvert" %}</option><option value="in_progress" {% if status == 'in_progress' %}selected{% endif %}>{% trans "En cours" %}</option><option value="completed" {% if status == 'completed' %}selected{% endif %}>{% trans "Terminé" %}</option></select></div>
+      <div class="col-md-2"><select class="form-select" name="difficulty"><option value="">{% trans "Difficulté" %}</option><option value="easy" {% if difficulty == 'easy' %}selected{% endif %}>Facile</option><option value="medium" {% if difficulty == 'medium' %}selected{% endif %}>Moyen</option><option value="hard" {% if difficulty == 'hard' %}selected{% endif %}>Difficile</option></select></div>
+      <div class="col-md-2 d-grid"><button class="btn btn-primary"><i class="bi bi-funnel"></i> {% trans "Filtrer" %}</button></div>
+    </div>
+  </form>
+
+  <div class="row g-3">
+    {% for p in page_obj %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="gf-card h-100 d-flex flex-column">
+        <div class="d-flex justify-content-between align-items-start"><span class="gf-badge gf-badge-{{ p.status }}">{{ p.get_status_display }}</span><span class="gf-tech-tag">{{ p.get_difficulty_display }}</span></div>
+        <h5 class="mt-2">{{ p.title }}</h5>
+        <p class="text-muted-2 small flex-grow-1">{{ p.description|truncatechars:120 }}</p>
+        <div class="mb-2">{% for t in p.tech_list|slice:":3" %}<span class="gf-tech-tag">{{ t }}</span>{% endfor %}</div>
+        <div class="d-flex justify-content-between align-items-center small text-muted-2 mb-2"><span><i class="bi bi-person"></i> {{ p.teacher.get_full_name|default:p.teacher.username }}</span><span><i class="bi bi-people"></i> {{ p.students.count }}/{{ p.max_students }}</span></div>
+        <a href="{% url 'project_detail' p.pk %}" class="btn btn-outline-primary btn-sm">{% trans "Voir le projet" %} <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+    {% empty %}<div class="col-12"><div class="gf-empty"><i class="bi bi-search gf-empty-icon"></i><p>{% trans "Aucun projet trouvé." %}</p></div></div>{% endfor %}
+  </div>
+  {% include 'core/_pagination.html' %}
+</div>
+{% endblock %}

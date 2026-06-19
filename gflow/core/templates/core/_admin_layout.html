@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="gf-admin-layout">
+  <aside class="gf-sidebar">
+    <div class="gf-sidebar-section">Navigation</div>
+    <a href="{% url 'admin_dashboard' %}" class="gf-sidebar-link {% if active == 'dashboard' %}active{% endif %}"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+    <a href="{% url 'admin_users' %}" class="gf-sidebar-link {% if active == 'users' %}active{% endif %}"><i class="bi bi-people-fill"></i> {% trans "Utilisateurs" %}</a>
+    <a href="{% url 'admin_projects' %}" class="gf-sidebar-link {% if active == 'projects' %}active{% endif %}"><i class="bi bi-folder-fill"></i> {% trans "Projets" %}</a>
+    <a href="{% url 'admin_logs' %}" class="gf-sidebar-link {% if active == 'logs' %}active{% endif %}"><i class="bi bi-clock-history"></i> {% trans "Logs d'activité" %}</a>
+    <div class="gf-sidebar-section">Outils</div>
+    <a href="{% url 'projects_export_csv' %}" class="gf-sidebar-link"><i class="bi bi-download"></i> Export CSV</a>
+    <a href="/admin/" class="gf-sidebar-link" target="_blank"><i class="bi bi-gear-fill"></i> Django Admin</a>
+  </aside>
+  <section class="gf-content">
+    {% block admin_content %}{% endblock %}
+  </section>
+</div>
+{% endblock %}

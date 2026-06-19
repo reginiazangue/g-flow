@@ -1,0 +1,38 @@
+{% extends 'core/_admin_layout.html' %}
+{% load i18n %}
+{% block extra_head %}<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>{% endblock %}
+{% block admin_content %}
+<h1 class="mb-1">{% trans "Tableau de bord administrateur" %}</h1>
+<p class="text-muted-2">{% trans "Vue d'ensemble de la plateforme G-Flow." %}</p>
+
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-people-fill"></i></div><div class="gf-stat-value">{{ user_count }}</div><div class="gf-stat-label">{% trans "Utilisateurs" %}</div></div></div>
+  <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-folder-fill"></i></div><div class="gf-stat-value">{{ project_count }}</div><div class="gf-stat-label">{% trans "Projets" %}</div></div></div>
+  <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-send-fill"></i></div><div class="gf-stat-value">{{ application_count }}</div><div class="gf-stat-label">{% trans "Candidatures" %}</div></div></div>
+  <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-star-fill"></i></div><div class="gf-stat-value">{{ avg_grade|floatformat:1 }}</div><div class="gf-stat-label">Moyenne /20</div></div></div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-6"><div class="gf-card"><h5>{% trans "Projets par statut" %}</h5><canvas id="chartStatus" height="220"></canvas></div></div>
+  <div class="col-lg-6"><div class="gf-card"><h5>{% trans "Utilisateurs par rôle" %}</h5><canvas id="chartRole" height="220"></canvas></div></div>
+  <div class="col-lg-6"><div class="gf-card"><h5>{% trans "Difficulté des projets" %}</h5><canvas id="chartDiff" height="220"></canvas></div></div>
+  <div class="col-lg-6"><div class="gf-card">
+    <h5>{% trans "Activité récente" %}</h5>
+    <div class="list-group list-group-flush">
+      {% for l in recent_logs %}<div class="list-group-item bg-transparent px-0 d-flex justify-content-between border-0 border-bottom"><span class="small"><strong>{{ l.user|default:'—' }}</strong> {{ l.action|truncatechars:50 }}</span><span class="small text-muted-2">{{ l.created_at|timesince }}</span></div>{% empty %}<p class="text-muted-2 small">{% trans "Aucune activité." %}</p>{% endfor %}
+    </div>
+  </div></div>
+</div>
+
+<script>
+fetch("{% url 'admin_stats_json' %}").then(r=>r.json()).then(data => {
+  const palette = ['#4F46E5','#06B6D4','#10B981','#F59E0B','#EF4444','#8B5CF6'];
+  function mkPie(id, items, labelKey) {
+    new Chart(document.getElementById(id), { type:'doughnut', data:{ labels: items.map(i=>i[labelKey]), datasets:[{ data: items.map(i=>i.c), backgroundColor: palette }]}, options:{ plugins:{ legend:{ position:'bottom'} }, cutout:'65%'}});
+  }
+  mkPie('chartStatus', data.by_status, 'status');
+  mkPie('chartRole', data.by_role, 'role');
+  mkPie('chartDiff', data.by_difficulty, 'difficulty');
+});
+</script>
+{% endblock %}

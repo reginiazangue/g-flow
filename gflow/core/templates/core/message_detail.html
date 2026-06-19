@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4" style="max-width:780px">
+  {% include 'core/_back.html' %}
+  <div class="gf-card">
+    <h1>{{ m.subject }}</h1>
+    <div class="d-flex justify-content-between text-muted-2 small mb-3"><span>{% trans "De" %} <strong>{{ m.sender }}</strong> à <strong>{{ m.recipient }}</strong></span><span>{{ m.created_at|date:"d/m/Y H:i" }}</span></div>
+    <hr class="gf-divider">
+    <p style="white-space:pre-line">{{ m.body }}</p>
+    {% if m.project %}<div class="alert alert-info">{% trans "Lié au projet :" %} <a href="{% url 'project_detail' m.project.pk %}">{{ m.project.title }}</a></div>{% endif %}
+    <a href="{% url 'message_new' %}?to={{ m.sender.pk }}" class="btn btn-primary"><i class="bi bi-reply"></i> {% trans "Répondre" %}</a>
+  </div>
+</div>
+{% endblock %}

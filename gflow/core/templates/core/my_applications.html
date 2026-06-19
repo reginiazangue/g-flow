@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4">
+  {% include 'core/_back.html' %}
+  <h1>{% trans "Mes candidatures" %}</h1>
+  <div class="gf-card p-0"><div class="table-responsive"><table class="gf-table mb-0">
+    <thead><tr><th>Projet</th><th>{% trans "Encadrant" %}</th><th>{% trans "Statut" %}</th><th>{% trans "Date" %}</th></tr></thead>
+    <tbody>{% for a in apps %}<tr>
+      <td><a href="{% url 'project_detail' a.project.pk %}" class="fw-bold">{{ a.project.title }}</a></td>
+      <td>{{ a.project.teacher.get_full_name|default:a.project.teacher.username }}</td>
+      <td><span class="gf-badge gf-badge-{{ a.status }}">{{ a.get_status_display }}</span></td>
+      <td class="small text-muted-2">{{ a.created_at|date:"d/m/Y" }}</td>
+    </tr>{% empty %}<tr><td colspan="4"><div class="gf-empty"><i class="bi bi-send gf-empty-icon"></i><p>{% trans "Aucune candidature." %}</p></div></td></tr>{% endfor %}</tbody>
+  </table></div></div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags i18n %}
+{% block content %}
+<div class="container py-5" style="max-width:560px">
+  <div class="gf-card"><h1 class="text-center">{% trans "Créer un compte" %}</h1><p class="text-center text-muted-2">{% trans "Rejoignez la communauté G-Flow" %}</p>
+    <form method="post">{% csrf_token %}{{ form|crispy }}<button class="btn btn-primary w-100"><i class="bi bi-person-plus"></i> {% trans "S'inscrire" %}</button></form>
+    <hr class="gf-divider"><p class="text-center small mb-0">{% trans "Déjà inscrit ?" %} <a href="{% url 'login' %}">{% trans "Connectez-vous" %}</a></p>
+  </div>
+</div>
+{% endblock %}

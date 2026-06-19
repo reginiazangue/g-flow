@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4">
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+    <div><h1 class="mb-1">Espace enseignant</h1><p class="text-muted-2 mb-0">{% trans "Gérez vos projets et candidatures." %}</p></div>
+    <a href="{% url 'project_create' %}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> {% trans "Nouveau projet" %}</a>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-folder2-open"></i></div><div class="gf-stat-value">{{ project_count }}</div><div class="gf-stat-label">{% trans "Projets" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-inbox"></i></div><div class="gf-stat-value">{{ pending_count }}</div><div class="gf-stat-label">{% trans "Candidatures" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-people"></i></div><div class="gf-stat-value">{{ students_count }}</div><div class="gf-stat-label">{% trans "Étudiants encadrés" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-file-earmark-bar-graph"></i></div><div class="gf-stat-value"><a href="{% url 'projects_export_csv' %}" class="text-decoration-none">CSV</a></div><div class="gf-stat-label">Export</div></div></div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-lg-7">
+      <div class="gf-card">
+        <div class="d-flex justify-content-between align-items-center mb-2"><h5 class="mb-0">{% trans "Mes projets" %}</h5><a href="{% url 'project_create' %}" class="btn btn-ghost btn-sm">{% trans "Créer" %}</a></div>
+        {% for p in my_projects %}
+          <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+            <div><a href="{% url 'project_detail' p.pk %}" class="fw-bold">{{ p.title }}</a><div class="small text-muted-2">{{ p.students.count }}/{{ p.max_students }} étudiants • {{ p.applications.count }} candidatures</div></div>
+            <span class="gf-badge gf-badge-{{ p.status }}">{{ p.get_status_display }}</span>
+          </div>
+        {% empty %}<div class="gf-empty"><i class="bi bi-folder2 gf-empty-icon"></i><p>{% trans "Aucun projet créé." %}</p></div>{% endfor %}
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="gf-card">
+        <h5>{% trans "Candidatures à traiter" %}</h5>
+        {% for a in pending_apps %}
+          <div class="py-2 border-bottom">
+            <div class="d-flex justify-content-between"><strong>{{ a.student.get_full_name|default:a.student.username }}</strong><span class="gf-badge gf-badge-pending">{% trans "En attente" %}</span></div>
+            <div class="small text-muted-2">{{ a.project.title|truncatechars:40 }}</div>
+          </div>
+        {% empty %}<p class="text-muted-2 small">{% trans "Aucune candidature en attente." %}</p>{% endfor %}
+        <a href="{% url 'applications_inbox' %}" class="btn btn-outline-primary btn-sm mt-3">{% trans "Voir toutes" %}</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags i18n %}
+{% block content %}
+<div class="container py-4" style="max-width:680px">
+  {% include 'core/_back.html' %}
+  <div class="gf-card">
+    <h1>Candidater à : {{ project.title }}</h1>
+    <p class="text-muted-2">Encadré par {{ project.teacher.get_full_name|default:project.teacher.username }}</p>
+    <form method="post">{% csrf_token %}{{ form|crispy }}<button class="btn btn-primary"><i class="bi bi-send"></i> {% trans "Envoyer ma candidature" %}</button></form>
+  </div>
+</div>
+{% endblock %}

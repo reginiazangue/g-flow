@@ -1,0 +1,34 @@
+{% load i18n %}
+<footer class="gf-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <a class="gf-brand" href="{% url 'home' %}"><span class="gf-brand-dot"><i class="bi bi-diagram-3-fill"></i></span> G-Flow</a>
+        <p class="mt-3 small">{% trans "La plateforme moderne pour gérer vos projets étudiants : candidatures, suivi, évaluation, et plus encore." %}</p>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6>Produit</h6>
+        <a href="{% url 'project_list' %}">{% trans "Projets" %}</a>
+        <a href="{% url 'home' %}">{% trans "Accueil" %}</a>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6>Compte</h6>
+        {% if user.is_authenticated %}
+          <a href="{% url 'dashboard' %}">{% trans "Tableau de bord" %}</a>
+          <a href="{% url 'profile' %}">{% trans "Profil" %}</a>
+        {% else %}
+          <a href="{% url 'login' %}">{% trans "Connexion" %}</a>
+          <a href="{% url 'signup' %}">Inscription</a>
+        {% endif %}
+      </div>
+      <div class="col-12 col-md-4">
+        <h6>{% trans "Contact" %}</h6>
+        <p class="small mb-1"><i class="bi bi-envelope me-2"></i>contact@gflow.cm</p>
+        <p class="small mb-1"><i class="bi bi-geo-alt me-2"></i>{% trans "Yaoundé, Cameroun" %}</p>
+      </div>
+    </div>
+    <div class="gf-footer-bottom">
+      © {% now "Y" %} <strong>G-Flow</strong> {% trans "— Tous droits réservés. Conçu avec" %} <i class="bi bi-heart-fill text-danger"></i> pour les étudiants.
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,8 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags i18n %}
+{% block content %}
+<div class="container py-4" style="max-width:680px">
+  {% include 'core/_back.html' %}
+  <div class="gf-card"><h1>{% trans "Évaluer" %}</h1><p>{% trans "Étudiant :" %} <strong>{{ student.get_full_name|default:student.username }}</strong> — Projet : <strong>{{ project.title }}</strong></p><form method="post">{% csrf_token %}{{ form|crispy }}<button class="btn btn-primary"><i class="bi bi-star"></i> {% trans "Enregistrer la note" %}</button></form></div>
+</div>
+{% endblock %}

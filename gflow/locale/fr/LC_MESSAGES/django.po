@@ -1,0 +1,364 @@
+# G-Flow translations - fr
+msgid ""
+msgstr ""
+"Project-Id-Version: G-Flow 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-21T12:39:16.289811\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Acceptées"
+msgstr "Acceptées"
+
+msgid "Accueil"
+msgstr "Accueil"
+
+msgid "Accédez à votre espace G-Flow"
+msgstr "Accédez à votre espace G-Flow"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Activité récente"
+msgstr "Activité récente"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Aucun message."
+msgstr "Aucun message."
+
+msgid "Aucun projet créé."
+msgstr "Aucun projet créé."
+
+msgid "Aucun projet ouvert."
+msgstr "Aucun projet ouvert."
+
+msgid "Aucun projet pour le moment."
+msgstr "Aucun projet pour le moment."
+
+msgid "Aucun projet trouvé."
+msgstr "Aucun projet trouvé."
+
+msgid "Aucun projet."
+msgstr "Aucun projet."
+
+msgid "Aucun résultat."
+msgstr "Aucun résultat."
+
+msgid "Aucun utilisateur."
+msgstr "Aucun utilisateur."
+
+msgid "Aucun étudiant assigné."
+msgstr "Aucun étudiant assigné."
+
+msgid "Aucune activité enregistrée."
+msgstr "Aucune activité enregistrée."
+
+msgid "Aucune activité."
+msgstr "Aucune activité."
+
+msgid "Aucune candidature en attente."
+msgstr "Aucune candidature en attente."
+
+msgid "Aucune candidature."
+msgstr "Aucune candidature."
+
+msgid "Aucune notification."
+msgstr "Aucune notification."
+
+msgid "Candidatures"
+msgstr "Candidatures"
+
+msgid "Candidatures reçues"
+msgstr "Candidatures reçues"
+
+msgid "Candidatures à traiter"
+msgstr "Candidatures à traiter"
+
+msgid "Connectez-vous"
+msgstr "Connectez-vous"
+
+msgid "Connexion"
+msgstr "Connexion"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Créer"
+msgstr "Créer"
+
+msgid "Créer un compte"
+msgstr "Créer un compte"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "De"
+msgstr "De"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Difficulté"
+msgstr "Difficulté"
+
+msgid "Difficulté des projets"
+msgstr "Difficulté des projets"
+
+msgid "Déconnexion"
+msgstr "Déconnexion"
+
+msgid "Découvrez les projets disponibles."
+msgstr "Découvrez les projets disponibles."
+
+msgid "Déjà inscrit ?"
+msgstr "Déjà inscrit ?"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "En attente"
+msgstr "En attente"
+
+msgid "En cours"
+msgstr "En cours"
+
+msgid "Encadrant"
+msgstr "Encadrant"
+
+msgid "Enregistrer"
+msgstr "Enregistrer"
+
+msgid "Enregistrer la note"
+msgstr "Enregistrer la note"
+
+msgid "Enseignants"
+msgstr "Enseignants"
+
+msgid "Envoyer"
+msgstr "Envoyer"
+
+msgid "Envoyer ma candidature"
+msgstr "Envoyer ma candidature"
+
+msgid "Envoyer un message"
+msgstr "Envoyer un message"
+
+msgid "Envoyés"
+msgstr "Envoyés"
+
+msgid "Explorer les projets"
+msgstr "Explorer les projets"
+
+msgid "Filtrer"
+msgstr "Filtrer"
+
+msgid "G-Flow connecte étudiants, enseignants et administrateurs autour d'un espace unique : publication, candidatures, suivi, évaluations et messagerie intégrée."
+msgstr "G-Flow connecte étudiants, enseignants et administrateurs autour d'un espace unique : publication, candidatures, suivi, évaluations et messagerie intégrée."
+
+msgid "Gérez vos projets et candidatures."
+msgstr "Gérez vos projets et candidatures."
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Inscrit le"
+msgstr "Inscrit le"
+
+msgid "Inscrivez-vous"
+msgstr "Inscrivez-vous"
+
+msgid "La plateforme moderne pour gérer vos projets étudiants : candidatures, suivi, évaluation, et plus encore."
+msgstr "La plateforme moderne pour gérer vos projets étudiants : candidatures, suivi, évaluation, et plus encore."
+
+msgid "Lié au projet :"
+msgstr "Lié au projet :"
+
+msgid "Logs d'activité"
+msgstr "Logs d'activité"
+
+msgid "Mes candidatures"
+msgstr "Mes candidatures"
+
+msgid "Mes candidatures récentes"
+msgstr "Mes candidatures récentes"
+
+msgid "Mes projets"
+msgstr "Mes projets"
+
+msgid "Modifier"
+msgstr "Modifier"
+
+msgid "Mon profil"
+msgstr "Mon profil"
+
+msgid "Mots-clés (ex: machine learning healthcare)"
+msgstr "Mots-clés (ex: machine learning healthcare)"
+
+msgid "Notifications"
+msgstr "Notifications"
+
+msgid "Nouveau"
+msgstr "Nouveau"
+
+msgid "Nouveau message"
+msgstr "Nouveau message"
+
+msgid "Nouveau projet"
+msgstr "Nouveau projet"
+
+msgid "Ouvert"
+msgstr "Ouvert"
+
+msgid "Pas de compte ?"
+msgstr "Pas de compte ?"
+
+msgid "Profil"
+msgstr "Profil"
+
+msgid "Projets"
+msgstr "Projets"
+
+msgid "Projets en vedette"
+msgstr "Projets en vedette"
+
+msgid "Projets ouverts"
+msgstr "Projets ouverts"
+
+msgid "Projets par statut"
+msgstr "Projets par statut"
+
+msgid "Recherche"
+msgstr "Recherche"
+
+msgid "Recherche académique"
+msgstr "Recherche académique"
+
+msgid "Rechercher dans les logs..."
+msgstr "Rechercher dans les logs..."
+
+msgid "Refusées"
+msgstr "Refusées"
+
+msgid "Rejoignez la communauté G-Flow"
+msgstr "Rejoignez la communauté G-Flow"
+
+msgid "Retour"
+msgstr "Retour"
+
+msgid "Reçus"
+msgstr "Reçus"
+
+msgid "Répondre"
+msgstr "Répondre"
+
+msgid "Rôle"
+msgstr "Rôle"
+
+msgid "S'inscrire"
+msgstr "S'inscrire"
+
+msgid "Se connecter"
+msgstr "Se connecter"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Supprimer"
+msgstr "Supprimer"
+
+msgid "Tableau de bord"
+msgstr "Tableau de bord"
+
+msgid "Tableau de bord administrateur"
+msgstr "Tableau de bord administrateur"
+
+msgid "Technologies"
+msgstr "Technologies"
+
+msgid "Terminé"
+msgstr "Terminé"
+
+msgid "Titre"
+msgstr "Titre"
+
+msgid "Tous les projets"
+msgstr "Tous les projets"
+
+msgid "Tous les rôles"
+msgstr "Tous les rôles"
+
+msgid "Tous les statuts"
+msgstr "Tous les statuts"
+
+msgid "Tout marquer comme lu"
+msgstr "Tout marquer comme lu"
+
+msgid "Toutes"
+msgstr "Toutes"
+
+msgid "Toutes mes candidatures"
+msgstr "Toutes mes candidatures"
+
+msgid "Trouvez des publications scientifiques (Crossref)."
+msgstr "Trouvez des publications scientifiques (Crossref)."
+
+msgid "Utilisateur"
+msgstr "Utilisateur"
+
+msgid "Utilisateurs"
+msgstr "Utilisateurs"
+
+msgid "Utilisateurs par rôle"
+msgstr "Utilisateurs par rôle"
+
+msgid "Voici un aperçu de votre activité."
+msgstr "Voici un aperçu de votre activité."
+
+msgid "Voir le projet"
+msgstr "Voir le projet"
+
+msgid "Voir tous"
+msgstr "Voir tous"
+
+msgid "Voir toutes"
+msgstr "Voir toutes"
+
+msgid "Vous avez déjà candidaté —"
+msgstr "Vous avez déjà candidaté —"
+
+msgid "Vue d'ensemble de la plateforme G-Flow."
+msgstr "Vue d'ensemble de la plateforme G-Flow."
+
+msgid "Yaoundé, Cameroun"
+msgstr "Yaoundé, Cameroun"
+
+msgid "avec fluidité."
+msgstr "avec fluidité."
+
+msgid "projets étudiants"
+msgstr "projets étudiants"
+
+msgid "Étudiant"
+msgstr "Étudiant"
+
+msgid "Étudiant :"
+msgstr "Étudiant :"
+
+msgid "Étudiants"
+msgstr "Étudiants"
+
+msgid "Étudiants assignés"
+msgstr "Étudiants assignés"
+
+msgid "Étudiants encadrés"
+msgstr "Étudiants encadrés"
+
+msgid "Évaluer"
+msgstr "Évaluer"
+
+msgid "— Tous droits réservés. Conçu avec"
+msgstr "— Tous droits réservés. Conçu avec"

@@ -1,0 +1,27 @@
+{% extends 'core/_admin_layout.html' %}
+{% load i18n %}
+{% block admin_content %}
+{% include 'core/_back.html' %}
+<h1>{% trans "Logs d'activité" %}</h1>
+<form method="get" class="gf-card mb-3 d-flex gap-2">
+  <input class="form-control" name="q" value="{{ q }}" placeholder="{% trans "Rechercher dans les logs..." %}">
+  <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+</form>
+<div class="gf-card p-0">
+<div class="table-responsive">
+<table class="gf-table mb-0">
+<thead><tr><th>{% trans "Date" %}</th><th>{% trans "Utilisateur" %}</th><th>{% trans "Action" %}</th><th>{% trans "IP" %}</th></tr></thead>
+<tbody>
+{% for l in page_obj %}
+<tr>
+  <td class="small text-muted-2">{{ l.created_at|date:"d/m/Y H:i:s" }}</td>
+  <td><strong>{{ l.user|default:'Anonyme' }}</strong></td>
+  <td class="small"><span class="gf-tech-tag">{{ l.method }}</span> {{ l.path }}</td>
+  <td class="small text-muted-2">{{ l.ip|default:'—' }}</td>
+</tr>
+{% empty %}<tr><td colspan="4"><div class="gf-empty"><i class="bi bi-clock-history gf-empty-icon"></i><p>{% trans "Aucune activité enregistrée." %}</p></div></td></tr>{% endfor %}
+</tbody></table>
+</div>
+</div>
+{% include 'core/_pagination.html' %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4">
+  {% include 'core/_back.html' %}
+  <h1>{% trans "Candidatures reçues" %}</h1>
+  <div class="d-flex gap-2 mb-3"><a href="?" class="btn btn-ghost btn-sm">{% trans "Toutes" %}</a><a href="?status=pending" class="btn btn-ghost btn-sm">{% trans "En attente" %}</a><a href="?status=accepted" class="btn btn-ghost btn-sm">{% trans "Acceptées" %}</a><a href="?status=rejected" class="btn btn-ghost btn-sm">{% trans "Refusées" %}</a></div>
+  <div class="gf-card p-0"><div class="table-responsive"><table class="gf-table mb-0">
+    <thead><tr><th>{% trans "Étudiant" %}</th><th>Projet</th><th>{% trans "Statut" %}</th><th>{% trans "Date" %}</th><th></th></tr></thead>
+    <tbody>{% for a in apps %}<tr>
+      <td><strong>{{ a.student.get_full_name|default:a.student.username }}</strong><div class="small text-muted-2">{{ a.student.email }}</div></td>
+      <td><a href="{% url 'project_detail' a.project.pk %}">{{ a.project.title|truncatechars:40 }}</a></td>
+      <td><span class="gf-badge gf-badge-{{ a.status }}">{{ a.get_status_display }}</span></td>
+      <td class="small text-muted-2">{{ a.created_at|date:"d/m/Y" }}</td>
+      <td>{% if a.status == 'pending' %}
+        <a href="{% url 'application_decide' a.pk 'accept' %}" class="btn btn-sm btn-primary"><i class="bi bi-check-lg"></i></a>
+        <a href="{% url 'application_decide' a.pk 'reject' %}" class="btn btn-sm btn-ghost text-danger"><i class="bi bi-x-lg"></i></a>
+      {% endif %}</td>
+    </tr>{% empty %}<tr><td colspan="5"><div class="gf-empty"><i class="bi bi-inbox gf-empty-icon"></i><p>{% trans "Aucune candidature." %}</p></div></td></tr>{% endfor %}</tbody>
+  </table></div></div>
+</div>
+{% endblock %}

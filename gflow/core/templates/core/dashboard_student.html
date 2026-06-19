@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4">
+  <h1>Bonjour, {{ user.first_name|default:user.username }} 👋</h1>
+  <p class="text-muted-2">{% trans "Voici un aperçu de votre activité." %}</p>
+
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-send"></i></div><div class="gf-stat-value">{{ my_applications|length }}</div><div class="gf-stat-label">{% trans "Candidatures" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-hourglass-split"></i></div><div class="gf-stat-value">{{ pending_count }}</div><div class="gf-stat-label">{% trans "En attente" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-check-circle"></i></div><div class="gf-stat-value">{{ accepted_count }}</div><div class="gf-stat-label">{% trans "Acceptées" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="gf-stat-card"><div class="gf-stat-icon"><i class="bi bi-folder-check"></i></div><div class="gf-stat-value">{{ my_projects|length }}</div><div class="gf-stat-label">{% trans "Mes projets" %}</div></div></div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-lg-7">
+      <div class="gf-card">
+        <h5>{% trans "Projets ouverts" %}</h5>
+        {% for p in open_projects %}
+          <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+            <div><a href="{% url 'project_detail' p.pk %}" class="fw-bold">{{ p.title }}</a><div class="small text-muted-2">{{ p.domain }} • {{ p.teacher.get_full_name|default:p.teacher.username }}</div></div>
+            <span class="gf-badge gf-badge-{{ p.status }}">{{ p.get_status_display }}</span>
+          </div>
+        {% empty %}<p class="text-muted-2 small mb-0">{% trans "Aucun projet ouvert." %}</p>{% endfor %}
+        <a href="{% url 'project_list' %}" class="btn btn-outline-primary btn-sm mt-3">{% trans "Voir tous" %}</a>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="gf-card">
+        <h5>{% trans "Mes candidatures récentes" %}</h5>
+        {% for a in my_applications %}
+          <div class="d-flex justify-content-between py-2 border-bottom">
+            <div><a href="{% url 'project_detail' a.project.pk %}">{{ a.project.title|truncatechars:30 }}</a></div>
+            <span class="gf-badge gf-badge-{{ a.status }}">{{ a.get_status_display }}</span>
+          </div>
+        {% empty %}<p class="text-muted-2 small">{% trans "Aucune candidature." %}</p>{% endfor %}
+        <a href="{% url 'my_applications' %}" class="btn btn-outline-primary btn-sm mt-3">{% trans "Toutes mes candidatures" %}</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

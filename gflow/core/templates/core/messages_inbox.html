@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4">
+  {% include 'core/_back.html' %}
+  <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <h1 class="mb-0">Messagerie</h1>
+    <a href="{% url 'message_new' %}" class="btn btn-primary"><i class="bi bi-pencil"></i> {% trans "Nouveau message" %}</a>
+  </div>
+  <div class="d-flex gap-2 mb-3">
+    <a href="{% url 'messages_inbox' %}" class="btn btn-{% if box == 'inbox' %}primary{% else %}ghost{% endif %} btn-sm">{% trans "Reçus" %}</a>
+    <a href="{% url 'messages_sent' %}" class="btn btn-{% if box == 'sent' %}primary{% else %}ghost{% endif %} btn-sm">{% trans "Envoyés" %}</a>
+  </div>
+  <div class="gf-card p-0"><div class="list-group list-group-flush">
+    {% for m in msgs %}<a href="{% url 'message_detail' m.pk %}" class="list-group-item list-group-item-action bg-transparent">
+      <div class="d-flex justify-content-between"><strong>{% if box == 'inbox' %}{{ m.sender }}{% else %}{{ m.recipient }}{% endif %}{% if box == 'inbox' and not m.is_read %} <span class="gf-badge gf-badge-pending ms-2">{% trans "Nouveau" %}</span>{% endif %}</strong><span class="small text-muted-2">{{ m.created_at|date:"d/m/Y H:i" }}</span></div>
+      <div>{{ m.subject }}</div>
+      <div class="small text-muted-2">{{ m.body|truncatechars:100 }}</div>
+    </a>{% empty %}<div class="gf-empty"><i class="bi bi-envelope gf-empty-icon"></i><p>{% trans "Aucun message." %}</p></div>{% endfor %}
+  </div></div>
+</div>
+{% endblock %}

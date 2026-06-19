@@ -1,0 +1,30 @@
+{% extends 'core/_admin_layout.html' %}
+{% load i18n %}
+{% block admin_content %}
+{% include 'core/_back.html' %}
+<h1>{% trans "Tous les projets" %}</h1>
+<form method="get" class="gf-card mb-3 d-flex gap-2">
+  <input class="form-control" name="q" value="{{ q }}" placeholder="Rechercher...">
+  <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+  <a href="{% url 'projects_export_csv' %}" class="btn btn-outline-primary"><i class="bi bi-download"></i> CSV</a>
+</form>
+<div class="gf-card p-0">
+<div class="table-responsive">
+<table class="gf-table mb-0">
+<thead><tr><th>{% trans "Titre" %}</th><th>{% trans "Encadrant" %}</th><th>Domaine</th><th>{% trans "Statut" %}</th><th>{% trans "Étudiants" %}</th><th></th></tr></thead>
+<tbody>
+{% for p in page_obj %}
+<tr>
+  <td><a href="{% url 'project_detail' p.pk %}" class="fw-bold">{{ p.title }}</a></td>
+  <td class="small">{{ p.teacher.get_full_name|default:p.teacher.username }}</td>
+  <td><span class="gf-tech-tag">{{ p.domain }}</span></td>
+  <td><span class="gf-badge gf-badge-{{ p.status }}">{{ p.get_status_display }}</span></td>
+  <td>{{ p.students.count }}/{{ p.max_students }}</td>
+  <td><a href="{% url 'project_edit' p.pk %}" class="btn btn-sm btn-ghost"><i class="bi bi-pencil"></i></a></td>
+</tr>
+{% empty %}<tr><td colspan="6"><div class="gf-empty"><i class="bi bi-folder gf-empty-icon"></i><p>{% trans "Aucun projet." %}</p></div></td></tr>{% endfor %}
+</tbody></table>
+</div>
+</div>
+{% include 'core/_pagination.html' %}
+{% endblock %}

@@ -1,0 +1,364 @@
+# G-Flow translations - en
+msgid ""
+msgstr ""
+"Project-Id-Version: G-Flow 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-21T12:39:16.289540\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Acceptées"
+msgstr "Accepted"
+
+msgid "Accueil"
+msgstr "Home"
+
+msgid "Accédez à votre espace G-Flow"
+msgstr "Access your G-Flow workspace"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Activité récente"
+msgstr "Recent activity"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Aucun message."
+msgstr "No messages."
+
+msgid "Aucun projet créé."
+msgstr "No project created."
+
+msgid "Aucun projet ouvert."
+msgstr "No open project."
+
+msgid "Aucun projet pour le moment."
+msgstr "No project yet."
+
+msgid "Aucun projet trouvé."
+msgstr "No project found."
+
+msgid "Aucun projet."
+msgstr "No projects."
+
+msgid "Aucun résultat."
+msgstr "No results."
+
+msgid "Aucun utilisateur."
+msgstr "No users."
+
+msgid "Aucun étudiant assigné."
+msgstr "No student assigned."
+
+msgid "Aucune activité enregistrée."
+msgstr "No activity recorded."
+
+msgid "Aucune activité."
+msgstr "No activity."
+
+msgid "Aucune candidature en attente."
+msgstr "No pending application."
+
+msgid "Aucune candidature."
+msgstr "No applications."
+
+msgid "Aucune notification."
+msgstr "No notifications."
+
+msgid "Candidatures"
+msgstr "Applications"
+
+msgid "Candidatures reçues"
+msgstr "Applications received"
+
+msgid "Candidatures à traiter"
+msgstr "Applications to process"
+
+msgid "Connectez-vous"
+msgstr "Sign in"
+
+msgid "Connexion"
+msgstr "Sign in"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Créer"
+msgstr "Create"
+
+msgid "Créer un compte"
+msgstr "Create an account"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "De"
+msgstr "From"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Difficulté"
+msgstr "Difficulty"
+
+msgid "Difficulté des projets"
+msgstr "Project difficulty"
+
+msgid "Déconnexion"
+msgstr "Sign out"
+
+msgid "Découvrez les projets disponibles."
+msgstr "Browse available projects."
+
+msgid "Déjà inscrit ?"
+msgstr "Already registered?"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "En attente"
+msgstr "Pending"
+
+msgid "En cours"
+msgstr "Ongoing"
+
+msgid "Encadrant"
+msgstr "Supervisor"
+
+msgid "Enregistrer"
+msgstr "Save"
+
+msgid "Enregistrer la note"
+msgstr "Save grade"
+
+msgid "Enseignants"
+msgstr "Teachers"
+
+msgid "Envoyer"
+msgstr "Send"
+
+msgid "Envoyer ma candidature"
+msgstr "Send my application"
+
+msgid "Envoyer un message"
+msgstr "Send a message"
+
+msgid "Envoyés"
+msgstr "Sent"
+
+msgid "Explorer les projets"
+msgstr "Explore projects"
+
+msgid "Filtrer"
+msgstr "Filter"
+
+msgid "G-Flow connecte étudiants, enseignants et administrateurs autour d'un espace unique : publication, candidatures, suivi, évaluations et messagerie intégrée."
+msgstr "G-Flow connects students, teachers and administrators in one space: publication, applications, tracking, evaluations and built-in messaging."
+
+msgid "Gérez vos projets et candidatures."
+msgstr "Manage your projects and applications."
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Inscrit le"
+msgstr "Joined on"
+
+msgid "Inscrivez-vous"
+msgstr "Sign up"
+
+msgid "La plateforme moderne pour gérer vos projets étudiants : candidatures, suivi, évaluation, et plus encore."
+msgstr "The modern platform to manage student projects: applications, tracking, evaluation, and more."
+
+msgid "Lié au projet :"
+msgstr "Linked to project:"
+
+msgid "Logs d'activité"
+msgstr "Activity logs"
+
+msgid "Mes candidatures"
+msgstr "My applications"
+
+msgid "Mes candidatures récentes"
+msgstr "My recent applications"
+
+msgid "Mes projets"
+msgstr "My projects"
+
+msgid "Modifier"
+msgstr "Edit"
+
+msgid "Mon profil"
+msgstr "My profile"
+
+msgid "Mots-clés (ex: machine learning healthcare)"
+msgstr "Keywords (e.g. machine learning healthcare)"
+
+msgid "Notifications"
+msgstr "Notifications"
+
+msgid "Nouveau"
+msgstr "New"
+
+msgid "Nouveau message"
+msgstr "New message"
+
+msgid "Nouveau projet"
+msgstr "New project"
+
+msgid "Ouvert"
+msgstr "Open"
+
+msgid "Pas de compte ?"
+msgstr "No account?"
+
+msgid "Profil"
+msgstr "Profile"
+
+msgid "Projets"
+msgstr "Projects"
+
+msgid "Projets en vedette"
+msgstr "Featured projects"
+
+msgid "Projets ouverts"
+msgstr "Open projects"
+
+msgid "Projets par statut"
+msgstr "Projects by status"
+
+msgid "Recherche"
+msgstr "Research"
+
+msgid "Recherche académique"
+msgstr "Academic research"
+
+msgid "Rechercher dans les logs..."
+msgstr "Search logs..."
+
+msgid "Refusées"
+msgstr "Declined"
+
+msgid "Rejoignez la communauté G-Flow"
+msgstr "Join the G-Flow community"
+
+msgid "Retour"
+msgstr "Back"
+
+msgid "Reçus"
+msgstr "Received"
+
+msgid "Répondre"
+msgstr "Reply"
+
+msgid "Rôle"
+msgstr "Role"
+
+msgid "S'inscrire"
+msgstr "Sign up"
+
+msgid "Se connecter"
+msgstr "Sign in"
+
+msgid "Statut"
+msgstr "Status"
+
+msgid "Supprimer"
+msgstr "Delete"
+
+msgid "Tableau de bord"
+msgstr "Dashboard"
+
+msgid "Tableau de bord administrateur"
+msgstr "Admin dashboard"
+
+msgid "Technologies"
+msgstr "Technologies"
+
+msgid "Terminé"
+msgstr "Completed"
+
+msgid "Titre"
+msgstr "Title"
+
+msgid "Tous les projets"
+msgstr "All projects"
+
+msgid "Tous les rôles"
+msgstr "All roles"
+
+msgid "Tous les statuts"
+msgstr "All statuses"
+
+msgid "Tout marquer comme lu"
+msgstr "Mark all as read"
+
+msgid "Toutes"
+msgstr "All"
+
+msgid "Toutes mes candidatures"
+msgstr "All my applications"
+
+msgid "Trouvez des publications scientifiques (Crossref)."
+msgstr "Find scientific publications (Crossref)."
+
+msgid "Utilisateur"
+msgstr "User"
+
+msgid "Utilisateurs"
+msgstr "Users"
+
+msgid "Utilisateurs par rôle"
+msgstr "Users by role"
+
+msgid "Voici un aperçu de votre activité."
+msgstr "Here's an overview of your activity."
+
+msgid "Voir le projet"
+msgstr "View project"
+
+msgid "Voir tous"
+msgstr "See all"
+
+msgid "Voir toutes"
+msgstr "See all"
+
+msgid "Vous avez déjà candidaté —"
+msgstr "You have already applied —"
+
+msgid "Vue d'ensemble de la plateforme G-Flow."
+msgstr "Overview of the G-Flow platform."
+
+msgid "Yaoundé, Cameroun"
+msgstr "Yaoundé, Cameroon"
+
+msgid "avec fluidité."
+msgstr "with fluidity."
+
+msgid "projets étudiants"
+msgstr "student projects"
+
+msgid "Étudiant"
+msgstr "Student"
+
+msgid "Étudiant :"
+msgstr "Student:"
+
+msgid "Étudiants"
+msgstr "Students"
+
+msgid "Étudiants assignés"
+msgstr "Assigned students"
+
+msgid "Étudiants encadrés"
+msgstr "Supervised students"
+
+msgid "Évaluer"
+msgstr "Evaluate"
+
+msgid "— Tous droits réservés. Conçu avec"
+msgstr "— All rights reserved. Designed with"

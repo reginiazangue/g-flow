@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inscription - G-Flow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .register-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        h1 { color: #667eea; text-align: center; margin-bottom: 30px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #5a67d8; }
+        .error { color: red; font-size: 12px; margin-top: -5px; margin-bottom: 10px; }
+        .login-link { text-align: center; margin-top: 20px; }
+        .login-link a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="register-card">
+        <h1>📝 Inscription G-Flow</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="error">{{ field.errors|striptags }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit">S'inscrire</button>
+        </form>
+        <div class="login-link">
+            <a href="/accounts/login/">Déjà un compte ? Se connecter</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-4">
+  {% include 'core/_back.html' %}
+  <div class="row g-3">
+    <div class="col-lg-8">
+      <div class="gf-card">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+          <div><span class="gf-badge gf-badge-{{ project.status }}">{{ project.get_status_display }}</span> <span class="gf-tech-tag">{{ project.get_difficulty_display }}</span> <span class="gf-tech-tag">{{ project.domain }}</span><h1 class="mt-2 mb-0">{{ project.title }}</h1></div>
+          <a href="{% url 'project_pdf' project.pk %}" class="btn btn-ghost btn-sm" data-no-loader><i class="bi bi-file-earmark-pdf"></i> PDF</a>
+        </div>
+        <hr class="gf-divider">
+        <h5>{% trans "Description" %}</h5>
+        <p style="white-space:pre-line">{{ project.description }}</p>
+        <h5 class="mt-4">{% trans "Technologies" %}</h5>
+        <div>{% for t in project.tech_list %}<span class="gf-tech-tag">{{ t }}</span>{% endfor %}</div>
+        {% if user == project.teacher or user.is_superuser or user.role == 'admin' %}
+          <hr class="gf-divider">
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="{% url 'project_edit' project.pk %}" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil"></i> {% trans "Modifier" %}</a>
+            <form method="post" action="{% url 'project_delete' project.pk %}" onsubmit="return confirm('Supprimer ?')">{% csrf_token %}<button class="btn btn-outline-primary btn-sm text-danger"><i class="bi bi-trash"></i> {% trans "Supprimer" %}</button></form>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if user == project.teacher %}
+      <div class="gf-card mt-3">
+        <h5>{% trans "Étudiants assignés" %}</h5>
+        {% for s in project.students.all %}
+          <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+            <div><strong>{{ s.get_full_name|default:s.username }}</strong><div class="small text-muted-2">{{ s.email }}</div></div>
+            <a href="{% url 'evaluate' project.pk s.pk %}" class="btn btn-outline-primary btn-sm"><i class="bi bi-star"></i> {% trans "Évaluer" %}</a>
+          </div>
+        {% empty %}<p class="text-muted-2 small">{% trans "Aucun étudiant assigné." %}</p>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="col-lg-4">
+      <div class="gf-card">
+        <h6 class="text-muted-2">{% trans "Encadrant" %}</h6>
+        <div class="d-flex align-items-center gap-2 mb-2">
+          {% if project.teacher.avatar %}<img src="{{ project.teacher.avatar.url }}" class="rounded-circle" width="40" height="40" style="object-fit:cover">
+          {% else %}<span class="gf-stat-icon" style="width:40px;height:40px">{{ project.teacher.username|first|upper }}</span>{% endif %}
+          <div><strong>{{ project.teacher.get_full_name|default:project.teacher.username }}</strong><div class="small text-muted-2">{{ project.teacher.department|default:'Enseignant' }}</div></div>
+        </div>
+        {% if user.is_authenticated and user != project.teacher %}<a href="{% url 'message_new' %}?to={{ project.teacher.pk }}" class="btn btn-outline-primary btn-sm w-100"><i class="bi bi-envelope"></i> Contacter</a>{% endif %}
+        <hr class="gf-divider">
+        <div class="d-flex justify-content-between mb-2"><span class="text-muted-2 small">Places</span><strong>{{ project.students.count }}/{{ project.max_students }}</strong></div>
+        <div class="d-flex justify-content-between mb-2"><span class="text-muted-2 small">Deadline</span><strong>{{ project.deadline|default:'—' }}</strong></div>
+        <div class="d-flex justify-content-between mb-3"><span class="text-muted-2 small">{% trans "Candidatures" %}</span><strong>{{ project.applications.count }}</strong></div>
+        {% if user.is_authenticated and user.role == 'student' and project.status == 'open' %}
+          {% if user_app %}<div class="alert alert-info mb-0">{% trans "Vous avez déjà candidaté —" %} <strong>{{ user_app.get_status_display }}</strong></div>
+          {% else %}<a href="{% url 'project_apply' project.pk %}" class="btn btn-primary w-100"><i class="bi bi-send"></i> Candidater</a>{% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
