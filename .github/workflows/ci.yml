@@ -26,10 +26,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install flake8
+          pip install flake8 bandit
 
       - name: Verifier le style du code (lint)
         run: flake8 . --max-line-length=120 --exclude=migrations --extend-ignore=E501,F401
+        continue-on-error: true
+
+      - name: Verifier la securite du code
+        run: bandit -r . -x ./migrations,./tests -ll
         continue-on-error: true
 
       - name: Lancer les migrations
