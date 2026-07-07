@@ -21,6 +21,7 @@ def _is_student(u): return u.is_authenticated and getattr(u, 'role', '') == 'stu
 
 
 def home(request):
+    raise Exception("Test panne")
     stats = {
         'projects': Project.objects.count(),
         'students': User.objects.filter(role='student').count(),
